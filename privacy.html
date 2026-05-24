@@ -37,71 +37,74 @@
       <p>We collect the following categories of personal data:</p>
       <ul>
         <li><strong>Account data:</strong> email address, display name, and profile picture URL (if you sign in via Google OAuth).</li>
-        <li><strong>Photos:</strong> images you upload to the app for AI analysis.</li>
-        <li><strong>Location data:</strong> GPS coordinates (latitude, longitude, accuracy) captured at the time of each photo, where you have granted location permission.</li>
+        <li><strong>Photos:</strong> images you upload to the application for automated AI analysis and defect diagnostics.</li>
+        <li><strong>Location data:</strong> GPS coordinates (latitude, longitude, horizontal accuracy) captured at the time of each photo, strictly where you have granted explicit device-level location permissions.</li>
         <li><strong>Device data:</strong> device model, operating system version, app version, and orientation metadata attached to uploaded photos.</li>
-        <li><strong>Usage data:</strong> project names, addresses, analysis prompts, and in-app activity logs used for diagnostics.</li>
-        <li><strong>Payment data:</strong> handled exclusively by Paddle; we do not store your card or banking details.</li>
+        <li><strong>Usage data:</strong> project names, construction site addresses, analysis prompts, and in-app activity logs used exclusively for system diagnostics.</li>
+        <li><strong>Payment data:</strong> handled exclusively by Paddle (our authorized reseller and Merchant of Record); we do not store, view, or process your credit card or banking details.</li>
       </ul>
 
       <h2>3. How We Use Your Data</h2>
       <p>We use your data to:</p>
       <ul>
-        <li>Authenticate your identity and maintain your account.</li>
-        <li>Process your photos through an AI model and return analysis results.</li>
-        <li>Generate PDF reports based on analysis results.</li>
+        <li>Authenticate your identity and maintain your personal user account.</li>
+        <li>Process your uploaded photos through the integrated AI model to return structured engineering analysis results.</li>
+        <li>Generate downloadable PDF and Excel reports based on your project data.</li>
         <li>Improve the accuracy and reliability of AI analysis over time (using anonymised, aggregated signals only).</li>
-        <li>Send transactional emails such as password reset links.</li>
+        <li>Send transactional emails such as password reset links or billing updates.</li>
         <li>Comply with legal obligations and enforce our Terms of Service.</li>
       </ul>
 
       <h2>4. Legal Basis for Processing</h2>
       <p>We process your personal data on the following legal bases:</p>
       <ul>
-        <li><strong>Contract performance:</strong> to deliver the services you have signed up for.</li>
-        <li><strong>Legitimate interests:</strong> to operate, maintain, and improve the app and to detect abuse.</li>
-        <li><strong>Legal obligation:</strong> where required by applicable law.</li>
-        <li><strong>Consent:</strong> for optional permissions such as GPS access (you may revoke this in your device settings at any time).</li>
+        <li><strong>Contract performance:</strong> to deliver the software services and subscription features you have signed up for.</li>
+        <li><strong>Legitimate interests:</strong> to operate, maintain, secure, and improve the application and to detect system abuse.</li>
+        <li><strong>Legal obligation:</strong> where required by applicable law or financial reporting regulations.</li>
+        <li><strong>Consent:</strong> for optional device permissions such as GPS access and camera roll access (you may revoke this in your device settings at any time).</li>
       </ul>
 
       <h2>5. Third-Party Services</h2>
-      <p>We share data with the following trusted third parties solely to operate the service:</p>
+      <p>We share relevant data with the following trusted third-party providers solely to operate and run the digital service:</p>
       <ul>
-        <li><strong>Supabase</strong> — cloud database and authentication provider. Stores account data, project data, photos, and analysis results on servers located in the EU or US (depending on your chosen region). Supabase is SOC 2 certified.</li>
-        <li><strong>AI provider</strong> (OpenAI / Anthropic / Google, to be finalised) — receives photo data and your analysis prompt to generate a structured report. Photos are transmitted securely and are not used to train third-party models under our current agreements.</li>
-        <li><strong>Paddle</strong> — payment processing and billing. Paddle acts as Merchant of Record and processes your payment details under its own privacy policy.</li>
-        <li><strong>Render</strong> — backend API hosting. Processes API requests on our behalf.</li>
+        <li><strong>Supabase</strong> - cloud database, object storage, and authentication infrastructure provider. Stores your secure account data, project assets, and photos. Supabase infrastructure is SOC 2 certified.</li>
+        <li><strong>Google Gemini API</strong> our primary Artificial Intelligence processing provider. Receives uploaded photo data and analysis prompts to generate structured reports. Photos transmitted via the Google Gemini API are handled securely and are not used by Google to train its public underlying AI models.</li>
+        <li><strong>Paddle.com</strong> - payment processing, billing, and tax collection. Paddle acts as the Merchant of Record and processes your payment details under its own privacy policy.</li>
+        <li><strong>Render</strong> - backend API hosting. Processes secure application routing and server execution on our behalf.</li>
       </ul>
-      <p>We do not sell your personal data to any third party.</p>
+      <p>We do not sell, rent, or trade your personal data to any third party.</p>
 
-      <h2>6. Data Retention</h2>
-      <p>We retain your data for as long as your account is active. If you delete your account, your personal data and uploaded photos will be permanently deleted within 30 days, except where retention is required by law (e.g., financial records required for tax purposes, which Paddle retains under its own policy).</p>
+      <h2>6. International Data Transfers</h2>
+      <p>Because BuildEye AI is operated globally, data may be transferred to and maintained on servers located outside of your state, province, or country. For users located within the European Economic Area (EEA) or the UK, we ensure that transfers to third-party processors (such as Supabase or Render) are protected by appropriate safeguards, including Standard Contractual Clauses (SCCs) approved by the European Commission.</p>
 
-      <h2>7. Your Rights</h2>
-      <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+	  <h2>7. Data Retention</h2>
+	  <p>We retain your personal data for as long as your user account is active. If you choose to delete your account, your personal profile data, project details, and uploaded photos will be permanently and irreversibly deleted from our live production databases within 30 days, except where retention is strictly required by law (e.g., historical financial transactional records managed under Paddle’s global tax compliance policy).</p>
+
+	  <h2>8. Your Rights</h2>
+      <p>Depending on your geographic location (such as under the GDPR for European users), you may possess the following data protection rights:</p>
       <ul>
         <li><strong>Access:</strong> request a copy of the data we hold about you.</li>
         <li><strong>Correction:</strong> request correction of inaccurate data.</li>
-        <li><strong>Deletion:</strong> request deletion of your account and associated data.</li>
-        <li><strong>Portability:</strong> request an export of your data in a machine-readable format.</li>
+        <li><strong>Deletion:</strong> request the removal of your account and associated data.</li>
+        <li><strong>Portability:</strong> request an export of your data in a structured, machine-readable format.</li>
         <li><strong>Objection:</strong> object to processing based on legitimate interests.</li>
         <li><strong>Restriction:</strong> request restriction of processing in certain circumstances.</li>
       </ul>
-      <p>To exercise any of these rights, email us at <a href="mailto:drozdsa@gmail.com">drozdsa@gmail.com</a>. We will respond within 30 days.</p>
+      <p>To exercise any of these rights, email us at <a href="mailto:drozdsa@gmail.com">drozdsa@gmail.com</a>. We will verify your identity and respond within 30 days.</p>
 
-      <h2>8. Cookies and Analytics</h2>
-      <p>The BuildEye AI mobile application itself does not use cookies. This website (the landing page) does not use tracking or analytics cookies.</p>
+      <h2>9. Cookies and Analytics</h2>
+      <p>The BuildEye AI mobile application itself does not use tracking cookies. This landing page website does not utilize invasive tracking or third-party marketing analytics cookies.</p>
 
-      <h2>9. Children's Privacy</h2>
-      <p>BuildEye AI is not directed at children under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us with personal data, please contact us and we will delete it promptly.</p>
+      <h2>10. Children's Privacy</h2>
+      <p>BuildEye AI is a B2B/B2C professional utility app and is not directed at children under the age of 18. We do not knowingly collect personal data from minors. If you believe a minor has provided us with data, contact us, and we will remove it promptly.</p>
 
-      <h2>10. Security</h2>
-      <p>We take reasonable technical and organisational measures to protect your data, including TLS encryption in transit, row-level security policies on the database, and access controls. No system is completely secure, and we cannot guarantee absolute security.</p>
+      <h2>11. Security Measures</h2>
+      <p>We implement rigorous technical and organisational measures to safeguard your information, including TLS/HTTPS encryption for data in transit, strict Row-Level Security (RLS) policies on the Supabase database layers, and isolated access controls. While we apply standard industry defenses, no digital storage system is completely secure, and we cannot guarantee absolute security.</p>
 
-      <h2>11. Changes to This Policy</h2>
+      <h2>12. Changes to This Policy</h2>
       <p>We may update this Privacy Policy from time to time. We will notify you of material changes via in-app notification or email. The "last updated" date at the top of this page reflects the most recent revision.</p>
 
-      <h2>12. Contact</h2>
+      <h2>13. Contact</h2>
       <p>For any privacy questions or to exercise your data rights, contact us at <a href="mailto:drozdsa@gmail.com">drozdsa@gmail.com</a>.</p>
     </div>
   </div>

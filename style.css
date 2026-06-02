@@ -349,6 +349,16 @@ footer p {
   color: #d1d5db;
 }
 
+.plan-features li.inherited {
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 0.35rem;
+}
+
+.plan-features li.inherited::before {
+  content: "";
+}
+
 .plan-btn {
   display: block;
   text-align: center;

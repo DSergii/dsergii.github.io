@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email confirmed — BuildEye AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .confirm-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .confirm-icon { font-size: 3.5rem; line-height: 1; }
+    .confirm-wrap h1 { font-size: 1.6rem; margin: 16px 0 12px; }
+    .confirm-wrap p { color: var(--gray); margin-bottom: 24px; line-height: 1.5; }
+    .btn-block { display: inline-block; margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      BuildEye <span class="logo-dot"></span> AI
+    </a>
+  </header>
+
+  <section class="confirm-wrap">
+    <div class="confirm-icon">✅</div>
+    <h1>Registration confirmed</h1>
+    <p>Your email has been verified. Open the BuildEye AI app and log in to get started.</p>
+    <a id="openApp" href="#" class="btn btn-block">Open the app</a>
+  </section>
+
+  <script>
+    // Deep link back into the native app (custom scheme registered in the Android app).
+    var APP_DEEP_LINK = 'com.warbler.buildeye://login';
+    document.getElementById('openApp').setAttribute('href', APP_DEEP_LINK);
+
+    // On mobile, try to open the app automatically. Harmless on desktop (no handler),
+    // where the user simply reads the success message and opens the app manually.
+    var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isMobile) {
+      setTimeout(function () { window.location.href = APP_DEEP_LINK; }, 600);
+    }
+  </script>
+
+</body>
+</html>

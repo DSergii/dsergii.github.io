@@ -1,14 +1,12 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  // IMPORTANT: "name" must match your existing Cloudflare Workers project name
+  // (the one mapped to buildeyeai.com). Rename this if your project is called
+  // something else, or Cloudflare may deploy to a different worker.
   "name": "buildeyeai",
-  "compatibility_date": "2026-06-05",
-  "observability": {
-    "enabled": true
-  },
+  "compatibility_date": "2026-06-09",
+  // This is a static site (plain HTML/CSS at the repo root, no build step).
+  // Serve the repo root as static assets — no Worker script/entry-point needed.
   "assets": {
     "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+  }
 }

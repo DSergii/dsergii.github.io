@@ -161,6 +161,23 @@ footer p {
   color: var(--primary);
 }
 
+.hero-status {
+  display: inline-block;
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  max-width: 560px;
+  margin: 0 auto 1.75rem;
+}
+
+.hero-status strong {
+  font-weight: 700;
+}
+
 .hero p {
   font-size: 1.15rem;
   color: var(--gray);

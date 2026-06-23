@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team invitation — BuildEye AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .confirm-wrap {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .confirm-icon { font-size: 3.5rem; line-height: 1; }
+    .confirm-wrap h1 { font-size: 1.6rem; margin: 16px 0 12px; }
+    .confirm-wrap p { color: var(--gray); margin-bottom: 24px; line-height: 1.5; }
+    .btn-block { display: inline-block; margin-top: 8px; }
+    .store-link { display: inline-block; margin-top: 16px; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      BuildEye <span class="logo-dot"></span> AI
+    </a>
+  </header>
+
+  <section class="confirm-wrap">
+    <div class="confirm-icon">👷</div>
+    <h1>You've been invited to a team</h1>
+    <p>Open the BuildEye AI app to accept your invitation.</p>
+    <a id="openApp" href="#" class="btn btn-block">Open the app</a>
+    <p>
+      <a class="store-link" href="https://play.google.com/store/apps/details?id=com.warbler.buildeye">
+        Don't have the app yet? Get it on Google Play
+      </a>
+    </p>
+  </section>
+
+  <script>
+    // Deep link back into the native app (custom scheme registered in the Android app);
+    // app.ts parses ?token= and routes to /invitations/:token. Same pattern as
+    // confirmed.html / checkout.html.
+    var token = new URLSearchParams(location.search).get('token') || '';
+    var APP_DEEP_LINK = 'com.warbler.buildeye://invite?token=' + encodeURIComponent(token);
+    document.getElementById('openApp').setAttribute('href', APP_DEEP_LINK);
+
+    // On mobile, try to open the app automatically. Harmless on desktop (no handler),
+    // where the user reads this and opens the app on their phone.
+    var isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isMobile && token) {
+      setTimeout(function () { window.location.href = APP_DEEP_LINK; }, 600);
+    }
+  </script>
+
+</body>
+</html>

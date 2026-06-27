@@ -95,7 +95,9 @@
     const plan = (params.get('plan') || '').toLowerCase();
     const cycle = (params.get('cycle') || 'monthly').toLowerCase() === 'annual' ? 'annual' : 'monthly';
     const pack = (params.get('pack') || '').trim();
-    const uid = params.get('uid') || '';
+    // Signed checkout token (binds the authenticated user). It's the only identity the
+    // backend webhook trusts — the old raw `uid` param was unauthenticated and is gone.
+    const tok = params.get('tok') || '';
     const email = params.get('email') || '';
 
     const $ = (id) => document.getElementById(id);
@@ -108,16 +110,16 @@
     }
 
     // Resolve what we're selling: a one-time top-up pack, or a subscription on the
-    // chosen billing cycle. Top-ups carry { kind:'topup', userId, photos } so the
+    // chosen billing cycle. Top-ups carry { kind:'topup', tok, photos } so the
     // webhook credits the per-user wallet instead of touching subscriptions.
     let priceId, customData;
     if (pack) {
       priceId = PACK_PRICE_IDS[pack];
-      customData = { kind: 'topup', photos: Number(pack), ...(uid ? { userId: uid } : {}) };
+      customData = { kind: 'topup', photos: Number(pack), ...(tok ? { tok } : {}) };
       if (!priceId) fail('Unknown top-up pack. Please pick a pack in the app and try again.');
     } else if (plan) {
       priceId = (PLAN_PRICE_IDS[cycle] || {})[plan];
-      customData = uid ? { userId: uid } : undefined;
+      customData = tok ? { tok } : undefined;
       if (!priceId) fail('Unknown or missing plan. Please pick a plan in the app and try again.');
     } else {
       fail('Nothing to check out. Please pick a plan or top-up in the app and try again.');

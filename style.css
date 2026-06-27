@@ -258,12 +258,25 @@ footer p {
   padding: 5rem 2rem;
 }
 
+.billing-note {
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.9rem;
+}
+
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .plan {
@@ -273,12 +286,29 @@ footer p {
   position: relative;
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.plan:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(17, 24, 39, 0.08);
 }
 
 .plan.popular {
   border-color: var(--primary);
   border-width: 2px;
   box-shadow: 0 4px 24px rgba(37, 99, 235, 0.12);
+}
+
+.plan.popular:hover {
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.2);
+}
+
+.plan-annual {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin-bottom: 1.25rem;
+  min-height: 1.1rem;
 }
 
 .plan-badge {
@@ -403,6 +433,94 @@ footer p {
 .plan.popular .plan-btn:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
+}
+
+/* ── Top-up packs ── */
+.topup {
+  max-width: 760px;
+  margin: 4.5rem auto 0;
+}
+
+.topup-header {
+  margin-bottom: 2rem;
+}
+
+.topup-header h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.topup-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.topup-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1rem;
+  text-align: center;
+  background: var(--light);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.topup-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
+}
+
+.topup-best {
+  border-color: var(--primary);
+  border-width: 2px;
+  background: #eff6ff;
+}
+
+.topup-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.22rem 0.7rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.topup-count {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.topup-label {
+  font-size: 0.8rem;
+  color: var(--gray);
+  margin: 0.2rem 0 0.9rem;
+}
+
+.topup-price {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.topup-note {
+  text-align: center;
+  color: var(--gray);
+  font-size: 0.82rem;
+  margin-top: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Page content (terms / privacy / refund) ── */

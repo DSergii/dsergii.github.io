@@ -45,15 +45,15 @@
     <!-- Loading / opening checkout -->
     <div id="loading">
       <h1>Preparing your checkout…</h1>
-      <p>You'll be able to complete your subscription in a moment.</p>
+      <p>You'll be able to complete your purchase in a moment.</p>
       <div class="spinner"></div>
     </div>
 
     <!-- Success -->
     <div id="success" class="hidden">
       <div class="success-icon">✅</div>
-      <h1>Subscription activated!</h1>
-      <p>Your plan is now active. Return to the app to start using your new features.</p>
+      <h1>Purchase complete!</h1>
+      <p>All set — return to the app to continue.</p>
       <a id="returnBtn" href="#" class="btn btn-block">Return to app</a>
     </div>
 
@@ -69,16 +69,32 @@
     // ---- Paddle config (SANDBOX — replace with production values when going live) ----
     const PADDLE_ENV = 'sandbox';
     const PADDLE_TOKEN = 'test_e4bbe3dec673bee290a1902aef2';
-    const PRICE_IDS = {
-      start: 'pri_01ksyjch02fzc5mf0g1fw6bqpe',
-      pro: 'pri_01ksyje8sqt9ygjfs6predngfy',
-      business: 'pri_01ksyjfqs3s41sh6ky0knaj8xa',
+    // Subscription prices, keyed by billing cycle then tier.
+    const PLAN_PRICE_IDS = {
+      monthly: {
+        start: 'pri_01ksyjch02fzc5mf0g1fw6bqpe',
+        pro: 'pri_01ksyje8sqt9ygjfs6predngfy',
+        business: 'pri_01ksyjfqs3s41sh6ky0knaj8xa',
+      },
+      annual: {
+        start: 'pri_01kw4r3g4qmn87dq3xhjwbj1v9',
+        pro: 'pri_01kw4r68jh6gpg113yt7k4vm1t',
+        business: 'pri_01kw4raa0s4cndj9pgmmjwg6kp',
+      },
+    };
+    // One-time, non-expiring top-up packs, keyed by analysis count.
+    const PACK_PRICE_IDS = {
+      '25': 'pri_01kw4rhkr2x7sf3t04ex4t4d8d',
+      '60': 'pri_01kw4rmmcqkkezvf5f7s13mmz0',
+      '120': 'pri_01kw4rtyksfb8qkdemrdt0xr1z',
     };
     // Deep link back into the native app after a successful purchase.
     const RETURN_SCHEME = 'com.warbler.buildeye://subscribed';
 
     const params = new URLSearchParams(window.location.search);
     const plan = (params.get('plan') || '').toLowerCase();
+    const cycle = (params.get('cycle') || 'monthly').toLowerCase() === 'annual' ? 'annual' : 'monthly';
+    const pack = (params.get('pack') || '').trim();
     const uid = params.get('uid') || '';
     const email = params.get('email') || '';
 
@@ -91,10 +107,23 @@
       show('error');
     }
 
-    const priceId = PRICE_IDS[plan];
-    if (!priceId) {
-      fail('Unknown or missing plan. Please pick a plan in the app and try again.');
+    // Resolve what we're selling: a one-time top-up pack, or a subscription on the
+    // chosen billing cycle. Top-ups carry { kind:'topup', userId, photos } so the
+    // webhook credits the per-user wallet instead of touching subscriptions.
+    let priceId, customData;
+    if (pack) {
+      priceId = PACK_PRICE_IDS[pack];
+      customData = { kind: 'topup', photos: Number(pack), ...(uid ? { userId: uid } : {}) };
+      if (!priceId) fail('Unknown top-up pack. Please pick a pack in the app and try again.');
+    } else if (plan) {
+      priceId = (PLAN_PRICE_IDS[cycle] || {})[plan];
+      customData = uid ? { userId: uid } : undefined;
+      if (!priceId) fail('Unknown or missing plan. Please pick a plan in the app and try again.');
     } else {
+      fail('Nothing to check out. Please pick a plan or top-up in the app and try again.');
+    }
+
+    if (priceId) {
       // Wire the "Return to app" button to the deep link.
       $('returnBtn').setAttribute('href', RETURN_SCHEME);
 
@@ -112,7 +141,7 @@
 
       const checkoutOptions = {
         items: [{ priceId, quantity: 1 }],
-        customData: uid ? { userId: uid } : undefined,
+        customData,
         settings: {
           theme: 'light',
           displayMode: 'overlay',

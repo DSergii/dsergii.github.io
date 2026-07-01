@@ -66,27 +66,27 @@
   </section>
 
   <script>
-    // ---- Paddle config (SANDBOX — replace with production values when going live) ----
-    const PADDLE_ENV = 'sandbox';
-    const PADDLE_TOKEN = 'test_e4bbe3dec673bee290a1902aef2';
+    // ---- Paddle config (PRODUCTION) ----
+    const PADDLE_ENV = 'production';
+    const PADDLE_TOKEN = 'live_6fc6f9f6c5d05aacc2ebc632e6d';
     // Subscription prices, keyed by billing cycle then tier.
     const PLAN_PRICE_IDS = {
       monthly: {
-        start: 'pri_01ksyjch02fzc5mf0g1fw6bqpe',
-        pro: 'pri_01ksyje8sqt9ygjfs6predngfy',
-        business: 'pri_01ksyjfqs3s41sh6ky0knaj8xa',
+        start: 'pri_01ksx342ehgc2aj6nct75wcdpp',
+        pro: 'pri_01kwegw6ve2ppjpvdqcqfdx5f9',
+        business: 'pri_01kwegycre140jx8t1dah9cfne',
       },
       annual: {
-        start: 'pri_01kw4r3g4qmn87dq3xhjwbj1v9',
-        pro: 'pri_01kw4r68jh6gpg113yt7k4vm1t',
-        business: 'pri_01kw4raa0s4cndj9pgmmjwg6kp',
+        start: 'pri_01kweheq3fm3yg2cw0bz0vhwrk',
+        pro: 'pri_01kwehh5rzh7ev9r8dc4pq16tx',
+        business: 'pri_01kwehk72vtn4012bmgfz86wpt',
       },
     };
     // One-time, non-expiring top-up packs, keyed by analysis count.
     const PACK_PRICE_IDS = {
-      '25': 'pri_01kw4rhkr2x7sf3t04ex4t4d8d',
-      '60': 'pri_01kw4rmmcqkkezvf5f7s13mmz0',
-      '120': 'pri_01kw4rtyksfb8qkdemrdt0xr1z',
+      '25': 'pri_01kweh2evvar46jqbak11n9q2c',
+      '60': 'pri_01kweha22vkas7mg5ayemwzv1b',
+      '120': 'pri_01kwehc7gn7rrw2kf69aham6hn',
     };
     // Deep link back into the native app after a successful purchase.
     const RETURN_SCHEME = 'com.warbler.buildeye://subscribed';

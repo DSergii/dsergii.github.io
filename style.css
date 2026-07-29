@@ -175,6 +175,22 @@ footer p {
   gap: 0.75rem;
 }
 
+.hero-store {
+  display: inline-block;
+  margin-top: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.hero-store:hover {
+  transform: translateY(-2px);
+}
+
+.hero-store img {
+  height: 58px;
+  width: auto;
+  display: block;
+}
+
 .hero-note {
   margin-top: 1.25rem;
   font-size: 0.8rem;

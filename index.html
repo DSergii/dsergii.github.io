@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BuildEye AI — AI-Powered Construction Site Analysis</title>
   <meta name="description" content="Capture photos on-site, get instant AI reports on construction stage, defects, materials, and what to fix next." />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#2563eb" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,7 +27,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-badge">Mobile App · Android &amp; iOS</div>
+    <div class="hero-badge">Mobile App · Android · iOS coming</div>
     <h1>AI Analysis for<br /><span>Construction Sites</span></h1>
     <p>Photograph any stage of a build. Instantly get a structured report — defects, materials, completion, and what to fix next.</p>
     <div class="hero-cta">
@@ -33,6 +37,20 @@
     <a href="https://play.google.com/store/apps/details?id=com.warbler.buildeye" class="hero-store" target="_blank" rel="noopener">
       <img src="assets/google-play-badge.png" alt="Get it on Google Play" />
     </a>
+
+    <div class="ios-wait">
+      <p class="ios-wait-lead">On iPhone? The iOS app isn’t out yet — tell us you want it.</p>
+      <button type="button" class="btn btn-ios" id="ios-interest-btn">
+        <svg class="ios-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <rect x="6.5" y="2" width="11" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M10.5 5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <circle cx="12" cy="18.5" r="1" fill="currentColor" />
+        </svg>
+        <span class="ios-interest-label">I want it on iPhone</span>
+      </button>
+      <p class="ios-interest-count" id="ios-interest-count" aria-live="polite" hidden></p>
+    </div>
+
     <p class="hero-note">Free plan available · No credit card required to start</p>
   </section>
 
@@ -232,5 +250,6 @@
     <p>&copy; 2026 BuildEye AI. All rights reserved.</p>
   </footer>
 
+  <script src="ios-interest.js" defer></script>
 </body>
 </html>

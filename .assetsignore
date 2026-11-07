@@ -1,0 +1,10 @@
+# Files living at the repo root that must not be published as static assets.
+.assetsignore
+.claude
+.gitignore
+.github
+.idea
+.wrangler
+LICENSE
+worker
+wrangler.jsonc

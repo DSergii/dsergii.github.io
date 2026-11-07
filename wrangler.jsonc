@@ -15,9 +15,9 @@
   "kv_namespaces": [
     {
       "binding": "IOS_INTEREST",
-      // Create once with:  npx wrangler kv namespace create IOS_INTEREST
-      // then paste the returned id here.
-      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+      // Created with:  npx wrangler kv namespace create IOS_INTEREST
+      // A namespace id is not a secret — it is useless without account credentials.
+      "id": "2f61b738274e4ebd9d52c71f319d3ab9"
     }
   ],
   "observability": {

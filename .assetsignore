@@ -1,10 +1,15 @@
 # Files living at the repo root that must not be published as static assets.
+# Workers Assets uploads the whole directory, including dotfiles, unless they
+# are listed here — .git in particular would expose the full repo history.
+.DS_Store
 .assetsignore
 .claude
-.gitignore
+.git
 .github
+.gitignore
 .idea
 .wrangler
 LICENSE
+node_modules
 worker
 wrangler.jsonc

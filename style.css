@@ -197,6 +197,59 @@ footer p {
   color: #9ca3af;
 }
 
+/* ── "I want it on iPhone" demand counter ── */
+.ios-wait {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ios-wait-lead {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 0.9rem;
+}
+
+.btn-ios {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  background: var(--dark);
+}
+
+.btn-ios:hover {
+  background: #000000;
+}
+
+.btn-ios:disabled {
+  cursor: default;
+}
+
+.btn-ios.is-voted {
+  background: #ecfdf5;
+  color: #047857;
+  box-shadow: inset 0 0 0 2px #a7f3d0;
+}
+
+.ios-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.ios-interest-count {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray);
+}
+
 /* ── Features ── */
 .features {
   padding: 5rem 2rem;

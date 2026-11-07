@@ -4,9 +4,23 @@
   // something else, or Cloudflare may deploy to a different worker.
   "name": "buildeyeai",
   "compatibility_date": "2026-06-09",
-  // This is a static site (plain HTML/CSS at the repo root, no build step).
-  // Serve the repo root as static assets — no Worker script/entry-point needed.
+  // Static HTML/CSS at the repo root, served straight from the assets bundle.
+  // See .assetsignore for the files that are kept out of that bundle.
   "assets": {
     "directory": "."
+  },
+  // Tiny Worker behind the static site: it only answers /api/ios-interest,
+  // every other path is served as an asset without invoking it.
+  "main": "worker/index.js",
+  "kv_namespaces": [
+    {
+      "binding": "IOS_INTEREST",
+      // Create once with:  npx wrangler kv namespace create IOS_INTEREST
+      // then paste the returned id here.
+      "id": "REPLACE_WITH_KV_NAMESPACE_ID"
+    }
+  ],
+  "observability": {
+    "enabled": true
   }
 }
